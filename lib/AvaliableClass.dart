@@ -17,12 +17,12 @@ class _AvaliableClassState extends State<AvaliableClass>{
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new RaisedButton(
-              child: new Text("My Classes"),
+              child: new Text("Plus 1"),
               color: Colors.green,
               onPressed: _incrementCounter,
             ),
             new RaisedButton(
-              child: new Text("My Classes"),
+              child: new Text("Reset"),
               color: Colors.green,
               onPressed: _resetCounter,
             ),

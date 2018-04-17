@@ -54,8 +54,8 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
           controller: controller,
           tabs: <Tab>[
             new Tab(icon: new Icon(Icons.map)),
-            new Tab(icon: new Icon(Icons.list)),
             new Tab(icon: new Icon(Icons.assignment)),
+            new Tab(icon: new Icon(Icons.list)),
           ]
         ),
       ),
@@ -63,8 +63,8 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
           controller: controller,
           children: <Widget>[
             new MapPage.MapPage(),
-            new AvaliableClass.AvaliableClass(),
             new MyCasses.MyClasses(),
+            new AvaliableClass.AvaliableClass(),
           ],
       ),
     );
