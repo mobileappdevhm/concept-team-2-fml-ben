@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './AvaliableClass.dart' as AvaliableClass;
 import './MapPage.dart' as MapPage;
 import './MyClasses.dart' as MyCasses;
+import 'MyClasses.dart';
 
 void main() => runApp(new MyApp());
 
@@ -49,12 +50,12 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("MUAS DEMO"),
-        backgroundColor: Colors.lime,
+        backgroundColor: Colors.red,
         bottom: new TabBar(
           controller: controller,
           tabs: <Tab>[
-            new Tab(icon: new Icon(Icons.map)),
             new Tab(icon: new Icon(Icons.assignment)),
+            new Tab(icon: new Icon(Icons.map)),
             new Tab(icon: new Icon(Icons.list)),
           ]
         ),
@@ -62,8 +63,8 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
       body: new TabBarView(
           controller: controller,
           children: <Widget>[
-            new MapPage.MapPage(),
             new MyCasses.MyClasses(),
+            new MapPage.MapPage(),
             new AvaliableClass.AvaliableClass(),
           ],
       ),
