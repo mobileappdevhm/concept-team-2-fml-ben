@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './AvaliableClass.dart' as AvaliableClass;
 import './MapPage.dart' as MapPage;
 import './MyClasses.dart' as MyCasses;
-import 'MyClasses.dart';
+import './ClassInfo.dart';
 
 void main() => runApp(new MyApp());
 
@@ -17,6 +17,9 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
+     routes: <String, WidgetBuilder>{
+      ClassInfo.routeName: (BuildContext context) => new ClassInfo(title: "ClassInfo"),
+    },
       home: new MyHomePage(),
     );
   }
