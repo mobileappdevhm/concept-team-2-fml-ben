@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ClassInfo extends StatefulWidget {
-  ClassInfo({Key key, this.title}) : super(key: key);
+  ClassInfo({Key key}) : super(key: key);
 
   static const String routeName = "/ClassInfo";
 
-  final String title;
 
   @override
   _ClassInfoState createState() => new _ClassInfoState();
@@ -25,7 +24,7 @@ class _ClassInfoState extends State<ClassInfo> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text(widget.title),
+        title: new Text("Pafe"),
       ),
       body: new Container(),
       floatingActionButton: new FloatingActionButton(

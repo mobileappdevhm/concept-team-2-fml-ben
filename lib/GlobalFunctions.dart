@@ -12,18 +12,16 @@ class Class {
 }
 
 
-List<Class> getMyClasses() {
-  List<Class> ClassList = <Class>[];
+List<Widget> getMyClasses() {
+  List<Widget> ClassList = <Widget>[];
   //Poll database for information and number of entries.
   for (int i = 0; i < globals.count; i++) {
     ClassList.add(
-      new Class(
-        false,
-        "This is my class xD its nme is super long dont you think",
-
-        new Container(
-          padding: new EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 8.0),
-          child: new Row(
+      new ExpansionTile(
+        title: new Text("STRING STING"),
+        children: <Widget>[
+          new Padding(padding: new EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 8.0)),
+          new Row(
 
             crossAxisAlignment: CrossAxisAlignment.start,
 
@@ -63,26 +61,26 @@ List<Class> getMyClasses() {
 
             ],
           ),
-        ),
-
+        ],
       ),
+
+
     );
   }
   return ClassList;
 }
 
-List<Class> getAvaliableClasses() {
-  List<Class> ClassList = <Class>[];
+
+List<Widget> getAvaliableClasses() {
+  List<Widget> ClassList = <Widget>[];
   //Poll database for information and number of entries.
   for (int i = 0; i < globals.count; i++) {
     ClassList.add(
-      new Class(
-        false,
-        "Your New Class?",
-
-        new Container(
-          padding: new EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 8.0),
-          child: new Row(
+      new ExpansionTile(
+        title: new Text("STRING STING"),
+        children: <Widget>[
+          new Padding(padding: new EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 8.0)),
+          new Row(
 
             crossAxisAlignment: CrossAxisAlignment.start,
 
@@ -136,13 +134,14 @@ List<Class> getAvaliableClasses() {
 
             ],
           ),
-        ),
-
+        ],
       ),
+
     );
   }
   return ClassList;
 }
+
 
 getMoreInfo() {
 //getMoreInfo(BuildContext context) {
