@@ -15,10 +15,38 @@ class _ClassInfoState extends State<ClassInfo> {
     return new Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.deepOrange,
-        title: new Text("More Info"),
+        title: new Text("Class ######"),
       ),
       body: new Container(
-        child: new Text("More Info Goes Here!"),
+        child: new Column(
+          children: <Widget>[
+            new Row(
+              children: <Widget>[
+                new Padding(
+                  padding: new EdgeInsets.fromLTRB(5.0, 50.0, 0.0, 0.0),
+                ),
+                new Text("Date/Time", style: new TextStyle(fontSize: 25.0,),),
+              ],
+            ),
+            new Row(
+              children: <Widget>[
+                new Padding(
+                  padding: new EdgeInsets.fromLTRB(5.0, 10.0, 0.0, 0.0),
+                ),
+                new Text("Place", style: new TextStyle(fontSize: 25.0,),),
+              ],
+            ),
+            new Row(
+              children: <Widget>[
+                new Padding(
+                  padding: new EdgeInsets.fromLTRB(40.0, 50.0, 0.0, 0.0),
+                ),
+                new Text(
+                  "Info Paragraph", style: new TextStyle(fontSize: 20.0,),),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

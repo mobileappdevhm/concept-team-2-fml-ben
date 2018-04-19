@@ -38,6 +38,7 @@ class _FacultyPageState extends State<FacultyPage> {
             new Row(
 
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
               children: <Widget>[
                 new Column(
@@ -58,39 +59,43 @@ class _FacultyPageState extends State<FacultyPage> {
                       ),
                     ]
                 ),
-                new Padding(
-                    padding: new EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 8.0)),
-                new FloatingActionButton(
-                  backgroundColor: Colors.blue,
-                  heroTag: i,
-                  onPressed: () => getMoreInfo(),
-                  child: new Text("i",
-                    style: new TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 35.0,
+                new Column(
+                  children: <Widget>[
+                    new Padding(
+                        padding: new EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 8.0)),
+                    new FloatingActionButton(
+                      backgroundColor: Colors.blue,
+                      heroTag: i,
+                      onPressed: () => getMoreInfo(),
+                      child: new Text("i",
+                        style: new TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 35.0,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                new Padding(
-                    padding: new EdgeInsets.fromLTRB(50.0, 0.0, 0.0, 8.0)),
-                new FloatingActionButton(
-                  backgroundColor: Colors.red,
-                  heroTag: i + 5,
-                  onPressed: () => addMyClass(),
-                  //onPressed: null,
-                  child: new Text("+",
-                    style: new TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 35.0,
+                  ],),
+                new Column(
+                  children: <Widget>[
+                    new Padding(
+                        padding: new EdgeInsets.fromLTRB(50.0, 0.0, 0.0, 8.0)),
+                    new FloatingActionButton(
+                      backgroundColor: Colors.red,
+                      heroTag: i + 5,
+                      onPressed: () => addMyClass(),
+                      //onPressed: null,
+                      child: new Text("+",
+                        style: new TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 35.0,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-
-                new Padding(
-                    padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0)),
-
+                  ],),
               ],
             ),
+            new Padding(
+                padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0)),
           ],
         ),
 

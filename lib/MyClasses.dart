@@ -35,11 +35,12 @@ class _MyClassesState extends State<MyClasses> {
             new Padding(padding: new EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 8.0)),
             new Row(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 new Column(
                     children: <Widget>[
                       new Padding(
-                          padding: new EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0)),
+                          padding: new EdgeInsets.fromLTRB(28.0, 0.0, 0.0, 0.0)),
                       new Text(
                         'Class Time',
                         style: new TextStyle(
@@ -54,20 +55,26 @@ class _MyClassesState extends State<MyClasses> {
                       ),
                     ]
                 ),
-                new Padding(
-                    padding: new EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 8.0)),
-                new FloatingActionButton(
-                  backgroundColor: Colors.blue,
-                  onPressed: () => getMoreInfo(),
-                  child: new Text("i",
-                    style: new TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 35.0,
+                new Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+//                    new Padding(
+//                        padding: new EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 8.0)),
+                    new FloatingActionButton(
+                      backgroundColor: Colors.blue,
+                      onPressed: () => getMoreInfo(),
+                      child: new Text("i",
+                        style: new TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 35.0,
+                        ),
+                      ),
                     ),
-                  ),
+                    new Padding(
+                        padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0)),
+                  ],
                 ),
-                new Padding(
-                    padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0)),
+                //new Padding(padding: new EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0)),
               ],
             ),
           ],
