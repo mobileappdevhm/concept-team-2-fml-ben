@@ -74,6 +74,7 @@ class _MyClassesState extends State<MyClasses> {
                         padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0)),
                   ],
                 ),
+                //TODO: let user add notes about the class aka where lab is!!!!
                 //new Padding(padding: new EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0)),
               ],
             ),
