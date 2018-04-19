@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'globals.dart' as globals;
-//import 'GlobalFunctions.dart';
 import './ClassInfo.dart';
 
 
@@ -13,11 +12,10 @@ class FacultyPage extends StatefulWidget {
   _FacultyPageState createState() => new _FacultyPageState();
 }
 
-class _FacultyPageState extends State<FacultyPage>{
+class _FacultyPageState extends State<FacultyPage> {
   @override
   Widget build(BuildContext context) {
     List<Widget> ClassList = getAvaliableClasses();
-
     Scaffold scaffold = new Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.deepOrange,
@@ -77,7 +75,7 @@ class _FacultyPageState extends State<FacultyPage>{
                     padding: new EdgeInsets.fromLTRB(50.0, 0.0, 0.0, 8.0)),
                 new FloatingActionButton(
                   backgroundColor: Colors.red,
-                  heroTag: i+5,
+                  heroTag: i + 5,
                   onPressed: () => addMyClass(),
                   //onPressed: null,
                   child: new Text("+",
@@ -97,7 +95,6 @@ class _FacultyPageState extends State<FacultyPage>{
         ),
 
       );
-
     }
     return ClassList;
   }

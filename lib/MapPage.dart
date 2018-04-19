@@ -7,7 +7,7 @@ class MapPage extends StatefulWidget {
   _MapPageState createState() => new _MapPageState();
 }
 
-class _MapPageState extends State<MapPage>{
+class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -18,8 +18,6 @@ class _MapPageState extends State<MapPage>{
       body: new Container(
         child: new Icon(Icons.map),
       ),
-
     );
   }
-
 }

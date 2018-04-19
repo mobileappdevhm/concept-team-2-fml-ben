@@ -7,7 +7,7 @@ import './FacultyPage.dart';
 
 void main() => runApp(new MyApp());
 
-int count=0;
+int count = 0;
 
 class MyApp extends StatelessWidget {
 
@@ -18,10 +18,10 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-     routes: <String, WidgetBuilder>{
-       ClassInfo.routeName: (BuildContext context) => new ClassInfo(),
-       FacultyPage.routeName: (BuildContext context) => new FacultyPage(),
-    },
+      routes: <String, WidgetBuilder>{
+        ClassInfo.routeName: (BuildContext context) => new ClassInfo(),
+        FacultyPage.routeName: (BuildContext context) => new FacultyPage(),
+      },
       home: new MyHomePage(),
     );
   }
@@ -34,7 +34,8 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
 
   TabController controller;
 
@@ -57,21 +58,21 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
         title: new Text("MUAS DEMO"),
         backgroundColor: Colors.red,
         bottom: new TabBar(
-          controller: controller,
-          tabs: <Tab>[
-            new Tab(icon: new Icon(Icons.assignment)),
-            new Tab(icon: new Icon(Icons.map)),
-            new Tab(icon: new Icon(Icons.list)),
-          ]
+            controller: controller,
+            tabs: <Tab>[
+              new Tab(icon: new Icon(Icons.assignment)),
+              new Tab(icon: new Icon(Icons.map)),
+              new Tab(icon: new Icon(Icons.list)),
+            ]
         ),
       ),
       body: new TabBarView(
-          controller: controller,
-          children: <Widget>[
-            new MyCasses.MyClasses(),
-            new MapPage.MapPage(),
-            new AvaliableClass.AvaliableClass(),
-          ],
+        controller: controller,
+        children: <Widget>[
+          new MyCasses.MyClasses(),
+          new MapPage.MapPage(),
+          new AvaliableClass.AvaliableClass(),
+        ],
       ),
     );
   }

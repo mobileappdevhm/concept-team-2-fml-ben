@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'globals.dart' as globals;
-//import 'GlobalFunctions.dart';
 import './ClassInfo.dart';
 
 class MyClasses extends StatefulWidget {
@@ -31,13 +30,11 @@ class _MyClassesState extends State<MyClasses> {
     for (int i = 0; i < globals.count; i++) {
       ClassList.add(
         new ExpansionTile(
-          title: new Text("MyClass :"+ i.toString()),
+          title: new Text("MyClass :" + i.toString()),
           children: <Widget>[
             new Padding(padding: new EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 8.0)),
             new Row(
-
               crossAxisAlignment: CrossAxisAlignment.start,
-
               children: <Widget>[
                 new Column(
                     children: <Widget>[
@@ -71,17 +68,15 @@ class _MyClassesState extends State<MyClasses> {
                 ),
                 new Padding(
                     padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0)),
-
               ],
             ),
           ],
         ),
-
-
       );
     }
     return ClassList;
   }
+
   getMoreInfo() {
 //getMoreInfo(BuildContext context) {
     Navigator.pushNamed(this.context, ClassInfo.routeName);

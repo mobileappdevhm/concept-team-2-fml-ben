@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'globals.dart' as globals;
-//import 'GlobalFunctions.dart';
 import './FacultyPage.dart';
 
 
@@ -11,7 +9,7 @@ class AvaliableClass extends StatefulWidget {
   _AvaliableClassState createState() => new _AvaliableClassState();
 }
 
-class _AvaliableClassState extends State<AvaliableClass>{
+class _AvaliableClassState extends State<AvaliableClass> {
   @override
   Widget build(BuildContext context) {
     List<Widget> ClassList = getAvaliableClasses();
@@ -33,19 +31,16 @@ class _AvaliableClassState extends State<AvaliableClass>{
       ClassList.add(
         new Container(
           child: new RaisedButton(
-            onPressed: () => Navigator.pushNamed(context, FacultyPage.routeName),
-            child: new Text("Faculty "+i.toString(), style: new TextStyle(fontSize: 20.0),),
+            onPressed: () =>
+                Navigator.pushNamed(context, FacultyPage.routeName),
+            child: new Text(
+              "Faculty " + i.toString(), style: new TextStyle(fontSize: 20.0),),
             color: Colors.white70,
-
           ),
           padding: new EdgeInsets.fromLTRB(0.0, 8.0, 0.0, 00.0),
         ),
       );
-
-
-
     }
     return ClassList;
   }
-
 }
