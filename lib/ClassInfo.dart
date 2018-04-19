@@ -24,17 +24,14 @@ class _ClassInfoState extends State<ClassInfo> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Pafe"),
+        backgroundColor: Colors.deepOrange,
+        title: new Text("More Info"),
       ),
-      body: new Container(),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _onFloatingActionButtonPressed,
-        tooltip: 'Add',
-        child: new Icon(Icons.add),
+      body: new Container(
+        child: new Text("More Info Goes Here!"),
       ),
+      
     );
   }
 
-  void _onFloatingActionButtonPressed() {
-  }
 }

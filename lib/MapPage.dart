@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import './ClassInfo.dart';
-
 
 class MapPage extends StatefulWidget {
   MapPage({Key key}) : super(key: key);
@@ -14,18 +12,14 @@ class _MapPageState extends State<MapPage>{
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
+        backgroundColor: Colors.deepOrange,
         title: new Text("Map"),
       ),
-      body: new Container(),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _onFloatingActionButtonPressed,
-        tooltip: 'Add',
-        child: new Icon(Icons.add),
+      body: new Container(
+        child: new Icon(Icons.map),
       ),
+
     );
   }
 
-  void _onFloatingActionButtonPressed() {
-    Navigator.pushNamed(this.context, ClassInfo.routeName);
-  }
 }

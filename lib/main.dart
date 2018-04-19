@@ -3,6 +3,7 @@ import './AvaliableClass.dart' as AvaliableClass;
 import './MapPage.dart' as MapPage;
 import './MyClasses.dart' as MyCasses;
 import './ClassInfo.dart';
+import './FacultyPage.dart';
 
 void main() => runApp(new MyApp());
 
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
      routes: <String, WidgetBuilder>{
-      ClassInfo.routeName: (BuildContext context) => new ClassInfo(),
+       ClassInfo.routeName: (BuildContext context) => new ClassInfo(),
+       FacultyPage.routeName: (BuildContext context) => new FacultyPage(),
     },
       home: new MyHomePage(),
     );

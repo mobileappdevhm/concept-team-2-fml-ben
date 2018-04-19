@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'globals.dart' as globals;
 //import 'GlobalFunctions.dart';
+import './ClassInfo.dart';
 
 class MyClasses extends StatefulWidget {
   MyClasses({Key key}) : super(key: key);
@@ -60,7 +61,7 @@ class _MyClassesState extends State<MyClasses> {
                     padding: new EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 8.0)),
                 new FloatingActionButton(
                   backgroundColor: Colors.blue,
-                  onPressed: null,
+                  onPressed: () => getMoreInfo(),
                   child: new Text("i",
                     style: new TextStyle(
                       fontWeight: FontWeight.bold,
@@ -80,5 +81,11 @@ class _MyClassesState extends State<MyClasses> {
       );
     }
     return ClassList;
+  }
+  getMoreInfo() {
+//getMoreInfo(BuildContext context) {
+    Navigator.pushNamed(this.context, ClassInfo.routeName);
+    //navigate to new page, I dont think a navigation here will work as it does depend on context, might need to pass in something, somehow?????
+    //Need Context to be passed in but this ListView is made before the context...... Interesting problem.
   }
 }
