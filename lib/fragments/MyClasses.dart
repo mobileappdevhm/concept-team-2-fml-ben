@@ -15,17 +15,30 @@ class _MyClassesState extends State<MyClasses> {
   Widget build(BuildContext context) {
     List<Widget> ClassList = getMyClasses();
     Scaffold scaffold = new Scaffold(
-      appBar: new AppBar(
-        backgroundColor: Colors.deepOrange,
-        title: new Text("My Classes"),
-        actions: [
-          new IconButton(
-              icon: new Icon(Icons.publish, color: Colors.white,),
-              onPressed: null
+      // TODO publish button
+      body: new Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          new Expanded(
+            child: new ListView(children: ClassList,),
+          ),
+          new Padding(
+            padding: new EdgeInsets.only(left: 12.0, right: 12.0, top: 8.0, bottom: 8.0),
+            child: new RaisedButton(
+              onPressed: () {},
+              color: Colors.green,
+
+              child: new Text(
+                'Submit your Selection!',
+                style: new TextStyle(
+                  fontSize: 20.0,
+                  color: Colors.white
+                ),
+              ),
+            ),
           )
         ],
       ),
-      body: new ListView(children: ClassList,),
     );
     return scaffold;
   }
