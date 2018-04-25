@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import './AvaliableClass.dart' as AvaliableClass;
-import './MapPage.dart' as MapPage;
-import './MyClasses.dart' as MyCasses;
-import './ClassInfo.dart';
-import './FacultyPage.dart';
+import 'package:demo_muas_sliding/fragments/AvaliableClass.dart' as AvaliableClass;
+import 'package:demo_muas_sliding/fragments/MapPage.dart' as MapPage;
+import 'package:demo_muas_sliding/fragments/MyClasses.dart' as MyCasses;
+import 'package:demo_muas_sliding/ClassInfo.dart';
+import 'package:demo_muas_sliding/pages/FacultyPage.dart';
 import 'package:demo_muas_sliding/SearchClasses.dart';
 
 void main() => runApp(new MyApp());
