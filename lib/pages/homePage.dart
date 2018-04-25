@@ -3,6 +3,7 @@ import 'package:demo_muas_sliding/fragments/MapPage.dart';
 import 'package:demo_muas_sliding/fragments/MyClasses.dart';
 import 'package:demo_muas_sliding/fragments/departmentsFragment.dart';
 import 'package:demo_muas_sliding/model/department.dart';
+import 'package:demo_muas_sliding/pages/settingsPage.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -27,7 +28,15 @@ class _HomePageState extends State<HomePage>
         title: new Text("MUAS DEMO", textAlign: TextAlign.left,),
         backgroundColor: Colors.red,
         actions: [
-          new IconButton(icon: new Icon(Icons.settings, color: Colors.white,), onPressed: null)
+          new IconButton(
+            icon: new Icon(Icons.settings, color: Colors.white,),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(builder: (context) => new SettingsPage())
+              );
+            }
+          )
         ],
       ),
       bottomNavigationBar: new BottomNavigationBar(
