@@ -3,7 +3,6 @@ import 'package:demo_muas_sliding/fragments/MapPage.dart';
 import 'package:demo_muas_sliding/fragments/MyClasses.dart';
 import 'package:demo_muas_sliding/fragments/departmentsFragment.dart';
 import 'package:demo_muas_sliding/model/department.dart';
-import 'package:demo_muas_sliding/fragments/settingsFragment.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -36,7 +35,6 @@ class _HomePageState extends State<HomePage>
           new BottomNavigationBarItem(icon: new Icon(Icons.assignment), title: new Text('My Selection')),
           new BottomNavigationBarItem(icon: new Icon(Icons.map), title: new Text('Maps')),
           new BottomNavigationBarItem(icon: new Icon(Icons.dashboard), title: new Text('Departments')),
-          new BottomNavigationBarItem(icon: new Icon(Icons.settings), title: new Text('Settings')),
         ],
         onTap: (index) {
           setState(() {
@@ -50,7 +48,6 @@ class _HomePageState extends State<HomePage>
           new MyClasses(),
           new MapPage(),
           new DepartmentsFragment(departments: widget.departments,),
-          new SettingsFragment(),
         ],
         controller: controller,
         onPageChanged: (index) {
