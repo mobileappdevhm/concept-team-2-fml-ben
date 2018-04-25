@@ -15,7 +15,6 @@ class _MyClassesState extends State<MyClasses> {
   Widget build(BuildContext context) {
     List<Widget> ClassList = getMyClasses();
     Scaffold scaffold = new Scaffold(
-      // TODO publish button
       body: new Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
