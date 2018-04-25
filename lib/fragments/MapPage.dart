@@ -1,19 +1,30 @@
 import 'package:flutter/material.dart';
 
-class MapPage extends StatefulWidget {
-  MapPage({Key key}) : super(key: key);
+class MapPage extends StatelessWidget {
 
-  @override
-  _MapPageState createState() => new _MapPageState();
-}
+  final TextStyle _style = new TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 20.0
+  );
 
-class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Container(
-        child: new Icon(Icons.map),
+    return new SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: new Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          new Text('Campus Lothstraße: ', style: _style,),
+          new Image.asset('assets/campusLoth.png'),
+          new Divider(),
+          new Text('Campus Pasing: ', style: _style,),
+          new Image.asset('assets/campusPasing.png'),
+          new Divider(),
+          new Text('Campus Karlstraße: ', style: _style,),
+          new Image.asset('assets/campusKarl.png'),
+        ],
       ),
     );
   }
+
 }
