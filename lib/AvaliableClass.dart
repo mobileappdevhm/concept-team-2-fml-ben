@@ -32,7 +32,12 @@ class _AvaliableClassState extends State<AvaliableClass> {
         new Container(
           child: new RaisedButton(
             onPressed: () =>
-                Navigator.pushNamed(context, FacultyPage.routeName),
+              //(BuildContext context) => new FacultyPage(),
+            //Navigator.pushNamed(context, FacultyPage.routeName),
+            Navigator.push(
+              context,
+              new MaterialPageRoute(builder: (context) => new FacultyPage(FKN: i,)),
+            ),
             child: new Text(
               "Faculty " + i.toString(), style: new TextStyle(fontSize: 20.0),),
             color: Colors.white70,

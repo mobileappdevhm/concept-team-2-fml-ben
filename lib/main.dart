@@ -55,8 +55,11 @@ class _MyHomePageState extends State<MyHomePage>
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("MUAS DEMO"),
+        title: new Text("MUAS DEMO", textAlign: TextAlign.left,),
         backgroundColor: Colors.red,
+        actions: [
+          new IconButton(icon: new Icon(Icons.settings, color: Colors.white,), onPressed: null)
+        ],
         bottom: new TabBar(
             controller: controller,
             tabs: <Tab>[

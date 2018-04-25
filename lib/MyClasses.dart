@@ -17,7 +17,10 @@ class _MyClassesState extends State<MyClasses> {
     Scaffold scaffold = new Scaffold(
       appBar: new AppBar(
         backgroundColor: Colors.deepOrange,
-        title: new Text("Avaliable Classes"),
+        title: new Text("My Classes"),
+        actions: [
+          new IconButton(icon: new Icon(Icons.publish, color: Colors.white,), onPressed: null)
+        ],
       ),
       body: new ListView(children: ClassList,),
     );
