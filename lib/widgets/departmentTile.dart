@@ -20,7 +20,7 @@ class DepartmentTile extends StatelessWidget {
             new Expanded(
               child: new Padding(
                 padding: new EdgeInsets.all(16.0),
-                child: new Image.asset('assets/dickbutt.png'),
+                child: new Image.asset('assets/placeholder.png'),
               )
             ),
             new Material(
