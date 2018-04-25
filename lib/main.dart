@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:demo_muas_sliding/fragments/MapPage.dart' as MapPage;
-import 'package:demo_muas_sliding/fragments/MyClasses.dart' as MyCasses;
+import 'package:demo_muas_sliding/fragments/MapPage.dart';
+import 'package:demo_muas_sliding/fragments/MyClasses.dart';
 import 'package:demo_muas_sliding/ClassInfo.dart';
-import 'package:demo_muas_sliding/pages/FacultyPage.dart';
 import 'package:demo_muas_sliding/SearchClasses.dart';
 import 'package:demo_muas_sliding/fragments/departmentsFragment.dart';
 import 'package:demo_muas_sliding/model/department.dart';
@@ -18,11 +17,10 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'demo_muas_sliding',
       theme: new ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       routes: <String, WidgetBuilder>{
         ClassInfo.routeName: (BuildContext context) => new ClassInfo(),
-        FacultyPage.routeName: (BuildContext context) => new FacultyPage(),
         SearchClasses.routeName: (BuildContext context) => new SearchClasses(title: "SearchClasses"),
 
       },
@@ -129,19 +127,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
 
-  TabController controller;
-
-  @override
-  void initState() {
-    super.initState();
-    controller = new TabController(length: 3, vsync: this);
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
+  PageController controller = new PageController();
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -152,22 +139,32 @@ class _MyHomePageState extends State<MyHomePage>
         actions: [
           new IconButton(icon: new Icon(Icons.settings, color: Colors.white,), onPressed: null)
         ],
-        bottom: new TabBar(
-            controller: controller,
-            tabs: <Tab>[
-              new Tab(icon: new Icon(Icons.assignment)),
-              new Tab(icon: new Icon(Icons.map)),
-              new Tab(icon: new Icon(Icons.list)),
-            ]
-        ),
       ),
-      body: new TabBarView(
-        controller: controller,
-        children: <Widget>[
-          new MyCasses.MyClasses(),
-          new MapPage.MapPage(),
-          new DepartmentsFragment(departments: widget.departments),
+      bottomNavigationBar: new BottomNavigationBar(
+        items: [
+          new BottomNavigationBarItem(icon: new Icon(Icons.assignment), title: new Text('My Selection')),
+          new BottomNavigationBarItem(icon: new Icon(Icons.map), title: new Text('Maps')),
+          new BottomNavigationBarItem(icon: new Icon(Icons.dashboard), title: new Text('Departments')),
         ],
+        onTap: (index) {
+          setState(() {
+            controller.jumpToPage(index);
+          });
+        },
+        currentIndex: index,
+      ),
+      body: new PageView(
+        children: <Widget>[
+          new MyClasses(),
+          new MapPage(),
+          new DepartmentsFragment(departments: widget.departments,)
+        ],
+        controller: controller,
+        onPageChanged: (index) {
+          setState(() {
+            this.index = index;
+          });
+        },
       ),
     );
   }
