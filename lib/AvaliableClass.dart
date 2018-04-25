@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import './FacultyPage.dart';
-
+import 'SearchClasses.dart';
 
 class AvaliableClass extends StatefulWidget {
   AvaliableClass({Key key}) : super(key: key);
@@ -18,6 +18,13 @@ class _AvaliableClassState extends State<AvaliableClass> {
       appBar: new AppBar(
         backgroundColor: Colors.deepOrange,
         title: new Text("Avaliable Classes"),
+        actions: [
+          new IconButton(
+              icon: new Icon(Icons.search, color: Colors.white,),
+              onPressed: () => Navigator.pushNamed(context, SearchClasses.routeName),
+
+          )
+        ],
       ),
       body: new ListView(children: ClassList,),
     );
@@ -27,13 +34,13 @@ class _AvaliableClassState extends State<AvaliableClass> {
   List<Widget> getAvaliableClasses() {
     List<Widget> ClassList = <Widget>[];
     //Poll database for information and number of entries.
-    ClassList.add(
-      new Form(child: new TextFormField(
-        onSaved: null,
-        decoration: new InputDecoration(labelText: "Search Classes", labelStyle: new TextStyle(fontSize: 20.0)),
-      ),
-      )
-    );
+//    ClassList.add(
+//      new Form(child: new TextFormField(
+//        onSaved: null,
+//        decoration: new InputDecoration(labelText: "Search Classes", labelStyle: new TextStyle(fontSize: 20.0)),
+//      ),
+//      )
+//    );
     for (int i = 1; i < 14; i++) {
       ClassList.add(
         new Container(

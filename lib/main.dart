@@ -4,6 +4,7 @@ import './MapPage.dart' as MapPage;
 import './MyClasses.dart' as MyCasses;
 import './ClassInfo.dart';
 import './FacultyPage.dart';
+import 'package:demo_muas_sliding/SearchClasses.dart';
 
 void main() => runApp(new MyApp());
 
@@ -21,6 +22,8 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         ClassInfo.routeName: (BuildContext context) => new ClassInfo(),
         FacultyPage.routeName: (BuildContext context) => new FacultyPage(),
+        SearchClasses.routeName: (BuildContext context) => new SearchClasses(title: "SearchClasses"),
+
       },
       home: new MyHomePage(),
     );
