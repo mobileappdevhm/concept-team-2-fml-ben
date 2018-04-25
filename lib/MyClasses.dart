@@ -19,7 +19,10 @@ class _MyClassesState extends State<MyClasses> {
         backgroundColor: Colors.deepOrange,
         title: new Text("My Classes"),
         actions: [
-          new IconButton(icon: new Icon(Icons.publish, color: Colors.white,), onPressed: null)
+          new IconButton(
+              icon: new Icon(Icons.publish, color: Colors.white,),
+              onPressed: null
+          )
         ],
       ),
       body: new ListView(children: ClassList,),
@@ -63,22 +66,12 @@ class _MyClassesState extends State<MyClasses> {
                   children: <Widget>[
 //                    new Padding(
 //                        padding: new EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 8.0)),
-                    new FloatingActionButton(
-                      backgroundColor: Colors.blue,
-                      onPressed: () => getMoreInfo(),
-                      child: new Text("i",
-                        style: new TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 35.0,
-                        ),
-                      ),
-                    ),
+                    new IconButton(icon: new Icon(Icons.info,size: 60.0,), onPressed: getMoreInfo),
                     new Padding(
-                        padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20.0)),
+                        padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 40.0)),
                   ],
                 ),
                 //TODO: let user add notes about the class aka where lab is!!!!
-                //new Padding(padding: new EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0.0)),
               ],
             ),
           ],
@@ -89,9 +82,6 @@ class _MyClassesState extends State<MyClasses> {
   }
 
   getMoreInfo() {
-//getMoreInfo(BuildContext context) {
     Navigator.pushNamed(this.context, ClassInfo.routeName);
-    //navigate to new page, I dont think a navigation here will work as it does depend on context, might need to pass in something, somehow?????
-    //Need Context to be passed in but this ListView is made before the context...... Interesting problem.
   }
 }

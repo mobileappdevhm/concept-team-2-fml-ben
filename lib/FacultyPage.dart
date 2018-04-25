@@ -192,34 +192,15 @@ class _FacultyPageState extends State<FacultyPage> {
                   children: <Widget>[
                     new Padding(
                         padding: new EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 8.0)),
-                    new FloatingActionButton(
-                      backgroundColor: Colors.blue,
-                      heroTag: i,
-                      onPressed: () => getMoreInfo(),
-                      child: new Text("i",
-                        style: new TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 35.0,
-                        ),
-                      ),
-                    ),
+                    new IconButton(icon: new Icon(Icons.info,size: 60.0,), onPressed: getMoreInfo),
                   ],),
                 new Column(
                   children: <Widget>[
                     new Padding(
                         padding: new EdgeInsets.fromLTRB(50.0, 0.0, 0.0, 8.0)),
-                    new FloatingActionButton(
-                      backgroundColor: Colors.red,
-                      heroTag: i + 5,
-                      onPressed: () => addMyClass(),
-                      //onPressed: null,
-                      child: new Text("+",
-                        style: new TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 35.0,
-                        ),
-                      ),
-                    ),
+                    new IconButton(icon: new Icon(Icons.add_circle,size: 60.0,color: Colors.blue,), onPressed: addMyClass),
+
+
                   ],),
               ],
             ),
@@ -235,15 +216,11 @@ class _FacultyPageState extends State<FacultyPage> {
 
 
   getMoreInfo() {
-//getMoreInfo(BuildContext context) {
     Navigator.pushNamed(this.context, ClassInfo.routeName);
-    //navigate to new page, I dont think a navigation here will work as it does depend on context, might need to pass in something, somehow?????
-    //Need Context to be passed in but this ListView is made before the context...... Interesting problem.
   }
 
   addMyClass() {
     //should add class to My Class in sqlite if we go that route.
-    //Getting wierd crash when i call this.
     globals.count++;
   }
 }

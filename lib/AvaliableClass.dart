@@ -27,6 +27,13 @@ class _AvaliableClassState extends State<AvaliableClass> {
   List<Widget> getAvaliableClasses() {
     List<Widget> ClassList = <Widget>[];
     //Poll database for information and number of entries.
+    ClassList.add(
+      new Form(child: new TextFormField(
+        onSaved: null,
+        decoration: new InputDecoration(labelText: "Search Classes", labelStyle: new TextStyle(fontSize: 20.0)),
+      ),
+      )
+    );
     for (int i = 1; i < 14; i++) {
       ClassList.add(
         new Container(
