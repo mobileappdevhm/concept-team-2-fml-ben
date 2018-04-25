@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:demo_muas_sliding/fragments/MapPage.dart';
+import 'package:demo_muas_sliding/fragments/mapFragment.dart';
 import 'package:demo_muas_sliding/fragments/MyClasses.dart';
 import 'package:demo_muas_sliding/fragments/departmentsFragment.dart';
 import 'package:demo_muas_sliding/model/department.dart';
@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage>
       body: new PageView(
         children: <Widget>[
           new MyClasses(),
-          new MapPage(),
+          new MapFragment(),
           new DepartmentsFragment(departments: widget.departments,),
         ],
         controller: controller,

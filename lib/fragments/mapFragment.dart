@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MapPage extends StatelessWidget {
+class MapFragment extends StatelessWidget {
 
   final TextStyle _style = new TextStyle(
     fontWeight: FontWeight.bold,
