@@ -11,11 +11,11 @@ class CourseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialButton(
+    return new Padding(
       padding: new EdgeInsets.only(top: 4.0, left: 8.0, right: 8.0, bottom: 4.0),
-      onPressed: () {listener.onCourseSelected(course);},
       child: new Card(
-        child: new Padding(
+        child: new FlatButton(
+            onPressed: () {},
             padding: new EdgeInsets.all(8.0),
             child: new Row(
               children: <Widget>[
@@ -35,7 +35,10 @@ class CourseCard extends StatelessWidget {
                             new Text('Lecturer:  ', style: new TextStyle(fontWeight: FontWeight.bold),),
                             new Padding(
                               padding: new EdgeInsets.only(left: 4.0),
-                              child: new Text(course.lecturer),
+                              child: new Text(
+                                course.lecturer,
+                                style: new TextStyle(fontWeight: FontWeight.normal),
+                              ),
                             )
                           ],
                         ),
@@ -44,7 +47,10 @@ class CourseCard extends StatelessWidget {
                             new Text('Credit Points: ', style: new TextStyle(fontWeight: FontWeight.bold),),
                             new Padding(
                               padding: new EdgeInsets.only(left: 4.0),
-                              child: new Text('${course.ectsCredits} (ECTS) / ${course.usCredits} (US)'),
+                              child: new Text(
+                                '${course.ectsCredits} (ECTS) / ${course.usCredits} (US)',
+                                style: new TextStyle(fontWeight: FontWeight.normal),
+                              ),
                             )
                           ],
                         ),
@@ -53,28 +59,37 @@ class CourseCard extends StatelessWidget {
                           children: <Widget>[
                             new Icon(Icons.class_, color: course.availabilityColor, size: 24.0,),
                             new Expanded(
-                              child: new Text(course.availabilityText, style: new TextStyle(fontStyle: FontStyle.italic),),
+                              child: new Text(
+                                course.availabilityText,
+                                style: new TextStyle(
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.normal
+                                ),
+                              ),
                             )
                           ],
                         ),
                       ]
                   ),
                 ),
-                new Column(
-                  children: <Widget>[
-                    new Center(
-                      child: isSelected ? new Icon(
-                        Icons.favorite,
-                        color: Colors.pink,
-                        size: 32.0,
-                      ) : new Icon(
-                        Icons.favorite_border,
-                        color: Colors.black12,
-                        size: 32.0,
+                new GestureDetector(
+                  onTap: () {listener.onCourseSelected(course);},
+                  child: new Column(
+                    children: <Widget>[
+                      new Center(
+                          child: isSelected ? new Icon(
+                            Icons.favorite,
+                            color: Colors.pink,
+                            size: 40.0,
+                          ) : new Icon(
+                            Icons.favorite_border,
+                            color: Colors.black12,
+                            size: 40.0,
+                          )
                       )
-                    )
-                  ],
-                ),
+                    ],
+                  ),
+                )
               ],
             )
         ),
