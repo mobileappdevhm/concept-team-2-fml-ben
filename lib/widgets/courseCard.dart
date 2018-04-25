@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:demo_muas_sliding/model/course.dart';
+import 'package:demo_muas_sliding/dialogs/courseDialog.dart';
 
 class CourseCard extends StatelessWidget {
 
@@ -15,7 +16,12 @@ class CourseCard extends StatelessWidget {
       padding: new EdgeInsets.only(top: 4.0, left: 8.0, right: 8.0, bottom: 4.0),
       child: new Card(
         child: new FlatButton(
-            onPressed: () {},
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (context) => new CourseDialog(course, isSelected, listener)
+              );
+            },
             padding: new EdgeInsets.all(8.0),
             child: new Row(
               children: <Widget>[

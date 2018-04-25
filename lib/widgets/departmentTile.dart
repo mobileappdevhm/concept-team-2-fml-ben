@@ -10,18 +10,25 @@ class DepartmentTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialButton(
-      child: new Card(
+    return new Card(
+      child: new MaterialButton(
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (context) => new DepartmentDialog(department)
+          );
+        },
         color: department.color,
+        padding: new EdgeInsets.all(0.0),
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             new Expanded(
-              child: new Padding(
-                padding: new EdgeInsets.all(16.0),
-                child: new Image.asset('assets/placeholder.png'),
-              )
+                child: new Padding(
+                  padding: new EdgeInsets.all(16.0),
+                  child: new Image.asset('assets/placeholder.png'),
+                )
             ),
             new Material(
               color: Colors.grey,
@@ -36,14 +43,7 @@ class DepartmentTile extends StatelessWidget {
             )
           ],
         ),
-      ),
-      padding: new EdgeInsets.all(4.0),
-      onPressed: () {
-        showDialog(
-          context: context,
-          builder: (context) => new DepartmentDialog(department)
-        );
-      },
+      )
     );
   }
 
