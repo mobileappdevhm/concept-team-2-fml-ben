@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage>
       ),
       body: new PageView(
         children: <Widget>[
-          new MyClasses(),
+          new SelectionFragment(),
           new MapFragment(),
           new DepartmentsFragment(departments: widget.departments,),
         ],

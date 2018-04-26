@@ -2,40 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:demo_muas_sliding/globals.dart' as globals;
 import 'package:demo_muas_sliding/ClassInfo.dart';
 
-class MyClasses extends StatefulWidget {
-  MyClasses({Key key}) : super(key: key);
+class SelectionFragment extends StatefulWidget {
+  SelectionFragment({Key key}) : super(key: key);
 
   @override
-  _MyClassesState createState() => new _MyClassesState();
+  _SelectionFragment createState() => new _SelectionFragment();
 }
 
-class _MyClassesState extends State<MyClasses> {
+class _SelectionFragment extends State<SelectionFragment> {
 
   @override
   Widget build(BuildContext context) {
     List<Widget> widgets = getMyClasses();
-    return new Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        new Expanded(
-          child: new ListView(children: widgets,),
-        ),
-        new Padding(
-          padding: new EdgeInsets.only(left: 12.0, right: 12.0, top: 8.0, bottom: 8.0),
-          child: new RaisedButton(
-            onPressed: () {},
-            color: Colors.green,
+    widgets.add(new Padding(
+      padding: new EdgeInsets.only(left: 12.0, right: 12.0, top: 8.0, bottom: 8.0),
+      child: new RaisedButton(
+        onPressed: () {},
+        color: Colors.green,
 
-            child: new Text(
-              'Submit your Selection!',
-              style: new TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.white
-              ),
-            ),
+        child: new Text(
+          'Submit your Selection!',
+          style: new TextStyle(
+              fontSize: 20.0,
+              color: Colors.white
           ),
-        )
-      ],
+        ),
+      ),
+    ));
+    return new ListView(
+      children: widgets,
     );
   }
 
