@@ -15,6 +15,23 @@ class _SelectionFragmentState extends State<SelectionFragment> implements Backen
 
   @override
   Widget build(BuildContext context) {
+    if (new Backend().allSelectedCourses.length > 0) {
+      return createSelectionList();
+    }
+    else {
+      return new Center(
+        child: new Text(
+          "You don't have selected any courses yet...",
+          textAlign: TextAlign.center,
+          style: new TextStyle(
+            fontSize: 32.0
+          ),
+        ),
+      );
+    }
+  }
+
+  Widget createSelectionList() {
     List<Widget> widgets = [];
     new Backend().allDepartments
         .where((department) => new Backend().hasSelectedCourses(department))
