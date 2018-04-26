@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:demo_muas_sliding/widgets/departmentTile.dart';
 import 'package:demo_muas_sliding/model/department.dart';
+import 'package:demo_muas_sliding/pages/homePage.dart';
 
 class DepartmentsFragment extends StatelessWidget {
 
   final List<Department> departments;
+  final SelectionListener listener;
 
-
-  DepartmentsFragment({this.departments = const []});
+  DepartmentsFragment(this.departments, this.listener);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class DepartmentsFragment extends StatelessWidget {
                 top: 4.0
             ),
             child: new DepartmentTile(
-                department
+                department, listener
             ),
           );
         }).toList()

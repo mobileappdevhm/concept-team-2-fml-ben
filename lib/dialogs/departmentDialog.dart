@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:demo_muas_sliding/model/department.dart';
 import 'package:demo_muas_sliding/pages/departmentDetailPage.dart';
+import 'package:demo_muas_sliding/pages/homePage.dart';
 
 class DepartmentDialog extends StatelessWidget {
 
   final Department department;
+  final SelectionListener listener;
 
-  DepartmentDialog(this.department);
+  DepartmentDialog(this.department, this.listener);
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +80,9 @@ class DepartmentDialog extends StatelessWidget {
               Navigator.pop(context);
               Navigator.push(
                   context,
-                  new MaterialPageRoute(builder: (context) => new DepartmentDetailPage(department))
+                  new MaterialPageRoute(
+                      builder: (context) => new DepartmentDetailPage(department, listener)
+                  )
               );
             },
             child: new Text(

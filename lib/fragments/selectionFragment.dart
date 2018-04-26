@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:demo_muas_sliding/model/course.dart';
+import 'package:demo_muas_sliding/model/department.dart';
 import 'package:demo_muas_sliding/globals.dart' as globals;
-import 'package:demo_muas_sliding/ClassInfo.dart';
 
-class SelectionFragment extends StatefulWidget {
-  SelectionFragment({Key key}) : super(key: key);
+class SelectionFragment extends StatelessWidget {
 
-  @override
-  _SelectionFragment createState() => new _SelectionFragment();
-}
+  final Map<Department, List<Course>> selection;
 
-class _SelectionFragment extends State<SelectionFragment> {
+  SelectionFragment(this.selection);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +17,6 @@ class _SelectionFragment extends State<SelectionFragment> {
       child: new RaisedButton(
         onPressed: () {},
         color: Colors.green,
-
         child: new Text(
           'Submit your Selection!',
           style: new TextStyle(
@@ -70,7 +67,7 @@ class _SelectionFragment extends State<SelectionFragment> {
                   children: <Widget>[
 //                    new Padding(
 //                        padding: new EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 8.0)),
-                    new IconButton(icon: new Icon(Icons.info,size: 60.0,), onPressed: getMoreInfo),
+                    new IconButton(icon: new Icon(Icons.info,size: 60.0,), onPressed: () {}),
                     new Padding(
                         padding: new EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 40.0)),
                   ],
@@ -85,7 +82,4 @@ class _SelectionFragment extends State<SelectionFragment> {
     return ClassList;
   }
 
-  getMoreInfo() {
-    Navigator.pushNamed(this.context, ClassInfo.routeName);
-  }
 }

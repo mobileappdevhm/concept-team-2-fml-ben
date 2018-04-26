@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:demo_muas_sliding/fragments/mapFragment.dart';
 import 'package:demo_muas_sliding/fragments/selectionFragment.dart';
 import 'package:demo_muas_sliding/fragments/departmentsFragment.dart';
+import 'package:demo_muas_sliding/model/course.dart';
 import 'package:demo_muas_sliding/model/department.dart';
 import 'package:demo_muas_sliding/pages/settingsPage.dart';
+import 'dart:collection';
 
 class HomePage extends StatefulWidget {
 
@@ -15,11 +17,19 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => new _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+class _HomePageState extends State<HomePage> implements SelectionListener {
 
   PageController controller = new PageController();
   int index = 0;
+  Map<Department, List<Course>> selection = new HashMap();
+
+  @override
+  void initState() {
+    super.initState();
+    for (Department department in widget.departments) {
+      selection.putIfAbsent(department, () => []); // Create empty List for Department
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,9 +64,12 @@ class _HomePageState extends State<HomePage>
       ),
       body: new PageView(
         children: <Widget>[
-          new SelectionFragment(),
+          new SelectionFragment(selection),
           new MapFragment(),
-          new DepartmentsFragment(departments: widget.departments,),
+          new DepartmentsFragment(
+            widget.departments,
+            this
+          ),
         ],
         controller: controller,
         onPageChanged: (index) {
@@ -67,4 +80,19 @@ class _HomePageState extends State<HomePage>
       ),
     );
   }
+
+  @override
+  void select(Department department, Course course) {
+    setState(() {
+      if (selection[department].contains(course)) {
+        selection[department].remove(course);
+      } else {
+        selection[department].add(course);
+      }
+    });
+  }
+}
+
+abstract class SelectionListener {
+  void select(Department department, Course course);
 }
