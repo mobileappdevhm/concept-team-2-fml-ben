@@ -8,6 +8,7 @@ class Department {
   final String fullName; //eg Department of Computer Science and Mathematics
   final Color color;
   final String location; // eg Campus Lothstraße
+  final String imageAsset;
   final List<Course> courses = [
     new Course('Mobile Application Development', 'Socher', 4, 5, 3, Availability.green),
     new Course('Compiler Construction', 'Ruckert', 4, 5, 3, Availability.yellow),
@@ -15,7 +16,7 @@ class Department {
   ];
 
   Department(this.shortName, this.name, this.fullName, this.color,
-      this.location, /*{this.courses = const []}*/); //TODO Uncomment
+      this.location, this.imageAsset, /*{this.courses = const []}*/); //TODO Uncomment
 
   get numberOfCourses {
     return courses.length;
