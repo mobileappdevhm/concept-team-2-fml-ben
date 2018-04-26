@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("MUAS DEMO", textAlign: TextAlign.left,),
+        title: new Text("Courses in English", textAlign: TextAlign.left,),
         backgroundColor: Colors.red,
         actions: [
           new IconButton(

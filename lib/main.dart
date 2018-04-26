@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'demo_muas_sliding',
+      title: 'Courses in English',
       theme: new ThemeData(
         primarySwatch: Colors.red,
       ),
