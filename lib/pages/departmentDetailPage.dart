@@ -46,7 +46,14 @@ class _DepartmentDetailPageState extends State<DepartmentDetailPage> implements 
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    new Backend().removeListener(this);
+  }
+
+  @override
   void initState() {
+    super.initState();
     new Backend().addListener(this);
   }
 
