@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:demo_muas_sliding/model/course.dart';
-import 'package:demo_muas_sliding/widgets/courseCard.dart';
+import 'package:demo_muas_sliding/model/department.dart';
+import 'package:demo_muas_sliding/model/backend.dart';
 
 // TODO improve Dialog
 class CourseDialog extends StatelessWidget {
 
+  final Department department;
   final Course course;
-  final bool isSelected;
-  final FavoriteListener listener;
+  final Backend backend = new Backend();
+  bool _isSelected;
 
-  CourseDialog(this.course, this.isSelected, this.listener);
+  CourseDialog(this.department, this.course) {
+    _isSelected = backend.isCourseSelected(department, course);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,16 +58,16 @@ class CourseDialog extends StatelessWidget {
             padding: new EdgeInsets.all(4.0),
             onPressed: () {
               Navigator.pop(context);
-              listener.onCourseSelected(course);
+              backend.selectCourse(department, course);
             },
             child: new Text(
-              isSelected ? 'Remove Course from Selection' : 'Add Course to Selection',
+              _isSelected ? 'Remove Course from Selection' : 'Add Course to Selection',
               textAlign: TextAlign.center,
               style: new TextStyle(
                   fontSize: 20.0
               ),
             ),
-            color: isSelected ? Colors.red : Colors.green,
+            color: _isSelected ? Colors.red : Colors.green,
             textColor: Colors.white,
           ),
         )

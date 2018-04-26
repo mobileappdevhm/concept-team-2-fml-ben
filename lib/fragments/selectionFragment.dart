@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:demo_muas_sliding/model/course.dart';
+import 'package:demo_muas_sliding/model/backend.dart';
 import 'package:demo_muas_sliding/model/department.dart';
 import 'package:demo_muas_sliding/widgets/courseCard.dart';
 import 'package:demo_muas_sliding/globals.dart' as globals;
 
 class SelectionFragment extends StatelessWidget {
-
-  final Map<Department, List<Course>> selection;
-
-  SelectionFragment(this.selection);
 
   @override
   Widget build(BuildContext context) {
@@ -85,13 +81,16 @@ class SelectionFragment extends StatelessWidget {
   }
 
   List<Widget> getClasses2() {
-    List<Course> allCourses = [];
-    selection.forEach((department, courses) => allCourses.addAll(courses));
-    return allCourses.map((course) => new Padding(
-        padding: new EdgeInsets.only(top: 4.0, bottom: 4.0, right: 8.0, left: 8.0),
-        child: CourseCard(course)
-    )
-    ).toList();
+    List<Widget> widgets = [];
+    Backend backend = new Backend();
+    for (Department department in backend.allDepartments) {
+      widgets.addAll(
+        backend.allSelectedCoursesByDepartment(department).map((course) => new Padding(
+              padding: new EdgeInsets.only(top: 4.0, bottom: 4.0, right: 8.0, left: 8.0),
+              child: CourseCard(department, course)
+          )));
+    }
+    return widgets;
   }
 
 }

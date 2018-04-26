@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:demo_muas_sliding/widgets/departmentTile.dart';
-import 'package:demo_muas_sliding/model/department.dart';
-import 'package:demo_muas_sliding/pages/homePage.dart';
+import 'package:demo_muas_sliding/model/backend.dart';
 
 class DepartmentsFragment extends StatelessWidget {
-
-  final List<Department> departments;
-
-  DepartmentsFragment(this.departments);
 
   @override
   Widget build(BuildContext context) {
     return new GridView.count(
         crossAxisCount: 2,
-        children: departments.map((department) {
+        children: new Backend().allDepartments.map((department) {
           return new Padding(
             padding: new EdgeInsets.only(
                 left: 4.0,

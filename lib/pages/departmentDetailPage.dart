@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:demo_muas_sliding/model/department.dart';
 import 'package:demo_muas_sliding/model/course.dart';
 import 'package:demo_muas_sliding/widgets/courseCard.dart';
-import 'package:demo_muas_sliding/pages/homePage.dart';
+import 'package:demo_muas_sliding/model/backend.dart';
 
 class DepartmentDetailPage extends StatefulWidget {
 
@@ -15,9 +15,9 @@ class DepartmentDetailPage extends StatefulWidget {
 
 }
 
-class _DepartmentDetailPageState extends State<DepartmentDetailPage> implements FavoriteListener {
+class _DepartmentDetailPageState extends State<DepartmentDetailPage> implements BackendListener {
 
-  List<Course> _selectedCourses = [];
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +30,7 @@ class _DepartmentDetailPageState extends State<DepartmentDetailPage> implements 
         child: ListView.builder(
           itemBuilder: (context, index) {
             Course course = widget.department.courses[index];
-            bool isSelected = _selectedCourses.contains(course);
-            return new CourseCard(course, listener: this, isSelected: isSelected,);
+            return new CourseCard(widget.department, course);
           },
           itemCount: widget.department.numberOfCourses,
         ),
@@ -40,15 +39,15 @@ class _DepartmentDetailPageState extends State<DepartmentDetailPage> implements 
   }
 
   @override
-  void onCourseSelected(Course course) {
+  void onDataChanged(Backend data) {
     setState(() {
-      if (_selectedCourses.contains(course)) {
-        _selectedCourses.remove(course);
-      }
-      else {
-        _selectedCourses.add(course);
-      }
+
     });
+  }
+
+  @override
+  void initState() {
+    new Backend().addListener(this);
   }
 
 }

@@ -118,7 +118,9 @@ class Backend {
   }
 
   List<Department> get allDepartments {
-    return _selection.keys.toList();
+    List<Department> departments = _selection.keys.toList();
+    departments.sort((d1, d2) => d1.shortName.compareTo(d2.shortName));
+    return departments;
   }
 
   List<Course> get availableCourses {
@@ -138,6 +140,14 @@ class Backend {
     return allSelectedCourses;
   }
 
+  void addListener(BackendListener listener) {
+    listeners.add(listener);
+  }
+
+  void removeListener(BackendListener listener) {
+    listeners.remove(listener);
+  }
+
   void _notifyListeners() {
     listeners.forEach((listener) => listener.onDataChanged(this));
   }
@@ -149,6 +159,10 @@ class Backend {
       _selection[department].add(course);
     }
     _notifyListeners();
+  }
+
+  bool isCourseSelected(Department department, Course course) {
+    return _selection[department].contains(course);
   }
 }
 

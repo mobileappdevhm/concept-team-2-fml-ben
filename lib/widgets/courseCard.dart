@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:demo_muas_sliding/model/backend.dart';
 import 'package:demo_muas_sliding/model/course.dart';
+import 'package:demo_muas_sliding/model/department.dart';
 import 'package:demo_muas_sliding/dialogs/courseDialog.dart';
 
 class CourseCard extends StatelessWidget {
 
+  final Department department;
   final Course course;
-  final FavoriteListener listener;
-  final bool isSelected;
+  final Backend backend = new Backend();
+  bool _isSelected;
 
-  CourseCard(this.course, {this.listener, this.isSelected = false});
+  CourseCard(this.department, this.course) {
+    _isSelected = backend.isCourseSelected(department, course);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,7 @@ class CourseCard extends StatelessWidget {
             onPressed: () {
               showDialog(
                   context: context,
-                  builder: (context) => new CourseDialog(course, isSelected, listener)
+                  builder: (context) => new CourseDialog(department, course)
               );
             },
             padding: new EdgeInsets.all(8.0),
@@ -79,11 +84,11 @@ class CourseCard extends StatelessWidget {
                   ),
                 ),
                 new GestureDetector(
-                  onTap: () {listener.onCourseSelected(course);},
+                  onTap: () {backend.selectCourse(department, course);},
                   child: new Column(
                     children: <Widget>[
                       new Center(
-                          child: isSelected ? new Icon(
+                          child: _isSelected ? new Icon(
                             Icons.favorite,
                             color: Colors.pink,
                             size: 40.0,
