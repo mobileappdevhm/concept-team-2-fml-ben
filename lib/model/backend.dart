@@ -93,12 +93,28 @@ List<Department> departments = [
       'assets/fk11.png'
   ),
   new Department(
+      'FK 12',
+      'Department 12',
+      'Department of Design',
+      Colors.teal.shade900,
+      'Campus Lothstraße',
+      'assets/fk12.png'
+  ),
+  new Department(
       'FK 13',
       'Department 13',
       'Department of General and Interdisciplinary Studies',
       Colors.purple,
       'Campus Lothstraße',
       'assets/fk13.png'
+  ),
+  new Department(
+      'FK 14',
+      'Department 14',
+      'Department of Tourism',
+      Colors.pink.shade600,
+      'Campus Lothstraße',
+      'assets/fk14.png'
   ),
 ];
 
