@@ -33,7 +33,12 @@ List<Department> departments = [
       'Department of Electrical Engineering and Information Technology',
       Colors.cyan,
       'Campus Lothstraße',
-      'assets/fk4.png'
+      'assets/fk4.png',
+      courses: [
+        new Course('Advanced Analog Circuit Design', 'Unterricker, Münker', 4, 5, 4, Availability.green),
+        new Course('Simulation Practice with Matlab/Simulink', 'Kahl', 4, 5, 4, Availability.green),
+        new Course('Microcomputer (Arduino Course) ', 'Irber ', 4, 5, 4, Availability.green),
+      ]
   ),
   new Department(
       'FK 05',
@@ -57,7 +62,13 @@ List<Department> departments = [
       'Department of Computer Science and Mathematics',
       Colors.teal,
       'Campus Lothstraße',
-      'assets/fk7.png'
+      'assets/fk7.png',
+      courses: [
+        new Course('Mobile Application Development', 'Socher', 4, 5, 3, Availability.green),
+        new Course('Compiler Construction', 'Ruckert', 4, 5, 3, Availability.green),
+        new Course('Technical Writing in Computer Science', 'Balazs', 4, 5, 3, Availability.green),
+        new Course('International Management I', 'Morgan', 4, 5, 3, Availability.yellow)
+      ]
   ),
   new Department(
       'FK 08',
@@ -81,7 +92,13 @@ List<Department> departments = [
       'Department of Business Administration',
       Colors.green,
       'Campus Pasing',
-      'assets/fk10.png'
+      'assets/fk10.png',
+      courses: [
+        new Course('Financial Modeling', 'Häcker', 4, 5, 4, Availability.red),
+        new Course('International Economics', 'Krusekopf (Canada)', 4, 5, 4, Availability.green),
+        new Course('Intercultural Communication', 'Scott', 4, 5, 4, Availability.red),
+        new Course('Intercultural Communication', 'Müllich', 4, 5, 4, Availability.yellow)
+      ]
   ),
   new Department(
       'FK 11',

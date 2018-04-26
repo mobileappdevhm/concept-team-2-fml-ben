@@ -9,14 +9,10 @@ class Department {
   final Color color;
   final String location; // eg Campus Lothstraße
   final String imageAsset;
-  final List<Course> courses = [
-    new Course('Mobile Application Development', 'Socher', 4, 5, 3, Availability.green),
-    new Course('Compiler Construction', 'Ruckert', 4, 5, 3, Availability.yellow),
-    new Course('Technical Writing in Computer Science', 'Balazs', 4, 5, 3, Availability.red)
-  ];
+  final List<Course> courses;
 
   Department(this.shortName, this.name, this.fullName, this.color,
-      this.location, this.imageAsset, /*{this.courses = const []}*/); //TODO Uncomment
+      this.location, this.imageAsset, {this.courses = const []});
 
   get numberOfCourses {
     return courses.length;
