@@ -164,6 +164,10 @@ class Backend {
   bool isCourseSelected(Department department, Course course) {
     return _selection[department].contains(course);
   }
+
+  bool hasSelectedCourses(Department department) {
+    return _selection[department].isNotEmpty;
+  }
 }
 
 abstract class BackendListener {
