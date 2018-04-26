@@ -13,33 +13,30 @@ class _MyClassesState extends State<MyClasses> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> ClassList = getMyClasses();
-    Scaffold scaffold = new Scaffold(
-      body: new Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          new Expanded(
-            child: new ListView(children: ClassList,),
-          ),
-          new Padding(
-            padding: new EdgeInsets.only(left: 12.0, right: 12.0, top: 8.0, bottom: 8.0),
-            child: new RaisedButton(
-              onPressed: () {},
-              color: Colors.green,
+    List<Widget> widgets = getMyClasses();
+    return new Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        new Expanded(
+          child: new ListView(children: widgets,),
+        ),
+        new Padding(
+          padding: new EdgeInsets.only(left: 12.0, right: 12.0, top: 8.0, bottom: 8.0),
+          child: new RaisedButton(
+            onPressed: () {},
+            color: Colors.green,
 
-              child: new Text(
-                'Submit your Selection!',
-                style: new TextStyle(
+            child: new Text(
+              'Submit your Selection!',
+              style: new TextStyle(
                   fontSize: 20.0,
                   color: Colors.white
-                ),
               ),
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
-    return scaffold;
   }
 
   List<Widget> getMyClasses() {

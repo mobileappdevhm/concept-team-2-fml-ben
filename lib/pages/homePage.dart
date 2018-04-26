@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:demo_muas_sliding/fragments/mapFragment.dart';
-import 'package:demo_muas_sliding/fragments/MyClasses.dart';
+import 'package:demo_muas_sliding/fragments/selectionFragment.dart';
 import 'package:demo_muas_sliding/fragments/departmentsFragment.dart';
 import 'package:demo_muas_sliding/model/department.dart';
 import 'package:demo_muas_sliding/pages/settingsPage.dart';
