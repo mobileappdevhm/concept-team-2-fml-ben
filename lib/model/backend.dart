@@ -30,6 +30,10 @@ class Backend {
     return allCourses;
   }
 
+  List<Course> availableCoursesByDepartment(Department department) {
+    return department.courses;
+  }
+
   List<Course> allSelectedCoursesByDepartment(Department department) {
     return _selection[department];
   }

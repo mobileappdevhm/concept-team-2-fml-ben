@@ -4,7 +4,7 @@ import 'package:demo_muas_sliding/model/course.dart';
 import 'package:demo_muas_sliding/model/department.dart';
 import 'package:demo_muas_sliding/dialogs/courseDialog.dart';
 
-class CourseCard extends StatelessWidget {
+class CourseCard extends StatefulWidget {
 
   final Department department;
   final Course course;
@@ -12,8 +12,15 @@ class CourseCard extends StatelessWidget {
 
   CourseCard(this.department, this.course);
 
+  @override
+  State<StatefulWidget> createState() => new _CourseCardState();
+
+}
+
+class _CourseCardState extends State<CourseCard> implements BackendListener {
+
   bool get _isSelected {
-    return backend.isCourseSelected(department, course);
+    return widget.backend.isCourseSelected(widget.department, widget.course);
   }
 
   @override
@@ -25,7 +32,7 @@ class CourseCard extends StatelessWidget {
             onPressed: () {
               showDialog(
                   context: context,
-                  builder: (context) => new CourseDialog(department, course)
+                  builder: (context) => new CourseDialog(widget.department, widget.course)
               );
             },
             padding: new EdgeInsets.all(8.0),
@@ -36,7 +43,7 @@ class CourseCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         new Text(
-                          course.name,
+                          widget.course.name,
                           style: new TextStyle(
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold
@@ -48,7 +55,7 @@ class CourseCard extends StatelessWidget {
                             new Padding(
                               padding: new EdgeInsets.only(left: 4.0),
                               child: new Text(
-                                course.lecturer,
+                                widget.course.lecturer,
                                 style: new TextStyle(fontWeight: FontWeight.normal),
                               ),
                             )
@@ -60,7 +67,7 @@ class CourseCard extends StatelessWidget {
                             new Padding(
                               padding: new EdgeInsets.only(left: 4.0),
                               child: new Text(
-                                '${course.ectsCredits} (ECTS) / ${course.usCredits} (US)',
+                                '${widget.course.ectsCredits} (ECTS) / ${widget.course.usCredits} (US)',
                                 style: new TextStyle(fontWeight: FontWeight.normal),
                               ),
                             )
@@ -69,10 +76,10 @@ class CourseCard extends StatelessWidget {
                         new Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-                            new Icon(Icons.class_, color: course.availabilityColor, size: 24.0,),
+                            new Icon(Icons.class_, color: widget.course.availabilityColor, size: 24.0,),
                             new Expanded(
                               child: new Text(
-                                course.availabilityText,
+                                widget.course.availabilityText,
                                 style: new TextStyle(
                                   fontStyle: FontStyle.italic,
                                   fontWeight: FontWeight.normal
@@ -85,7 +92,7 @@ class CourseCard extends StatelessWidget {
                   ),
                 ),
                 new GestureDetector(
-                  onTap: () {backend.selectCourse(department, course);},
+                  onTap: () {widget.backend.selectCourse(widget.department, widget.course);},
                   child: new Column(
                     children: <Widget>[
                       new Center(
@@ -109,6 +116,24 @@ class CourseCard extends StatelessWidget {
     );
   }
 
+  @override
+  void onDataChanged(Backend data) {
+    setState(() {
+
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    new Backend().removeListener(this);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    new Backend().addListener(this);
+  }
 }
 
 abstract class FavoriteListener {
