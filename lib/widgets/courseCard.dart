@@ -9,10 +9,11 @@ class CourseCard extends StatelessWidget {
   final Department department;
   final Course course;
   final Backend backend = new Backend();
-  bool _isSelected;
 
-  CourseCard(this.department, this.course) {
-    _isSelected = backend.isCourseSelected(department, course);
+  CourseCard(this.department, this.course);
+
+  bool get _isSelected {
+    return backend.isCourseSelected(department, course);
   }
 
   @override
