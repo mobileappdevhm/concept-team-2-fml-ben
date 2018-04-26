@@ -6,9 +6,8 @@ import 'package:demo_muas_sliding/pages/homePage.dart';
 class DepartmentDialog extends StatelessWidget {
 
   final Department department;
-  final SelectionListener listener;
 
-  DepartmentDialog(this.department, this.listener);
+  DepartmentDialog(this.department);
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +80,7 @@ class DepartmentDialog extends StatelessWidget {
               Navigator.push(
                   context,
                   new MaterialPageRoute(
-                      builder: (context) => new DepartmentDetailPage(department, listener)
+                      builder: (context) => new DepartmentDetailPage(department)
                   )
               );
             },

@@ -6,9 +6,8 @@ import 'package:demo_muas_sliding/pages/homePage.dart';
 class DepartmentTile extends StatelessWidget {
 
   final Department department;
-  final SelectionListener listener;
 
-  DepartmentTile(this.department, this.listener);
+  DepartmentTile(this.department);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class DepartmentTile extends StatelessWidget {
         onPressed: () {
           showDialog(
               context: context,
-              builder: (context) => new DepartmentDialog(department, listener)
+              builder: (context) => new DepartmentDialog(department)
           );
         },
         color: department.color,

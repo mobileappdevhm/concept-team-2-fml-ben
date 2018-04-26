@@ -7,9 +7,8 @@ import 'package:demo_muas_sliding/pages/homePage.dart';
 class DepartmentDetailPage extends StatefulWidget {
 
   final Department department;
-  final SelectionListener listener;
 
-  DepartmentDetailPage(this.department, this.listener);
+  DepartmentDetailPage(this.department);
 
   @override
   _DepartmentDetailPageState createState() => new _DepartmentDetailPageState();
@@ -50,7 +49,6 @@ class _DepartmentDetailPageState extends State<DepartmentDetailPage> implements 
         _selectedCourses.add(course);
       }
     });
-    widget.listener.select(widget.department, course);
   }
 
 }

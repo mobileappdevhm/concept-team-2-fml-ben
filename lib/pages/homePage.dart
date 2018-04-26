@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => new _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> implements SelectionListener {
+class _HomePageState extends State<HomePage> {
 
   PageController controller = new PageController();
   int index = 0;
@@ -67,8 +67,7 @@ class _HomePageState extends State<HomePage> implements SelectionListener {
           new SelectionFragment(selection),
           new MapFragment(),
           new DepartmentsFragment(
-            widget.departments,
-            this
+            widget.departments
           ),
         ],
         controller: controller,
@@ -81,18 +80,4 @@ class _HomePageState extends State<HomePage> implements SelectionListener {
     );
   }
 
-  @override
-  void select(Department department, Course course) {
-    setState(() {
-      if (selection[department].contains(course)) {
-        selection[department].remove(course);
-      } else {
-        selection[department].add(course);
-      }
-    });
-  }
-}
-
-abstract class SelectionListener {
-  void select(Department department, Course course);
 }

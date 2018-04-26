@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:demo_muas_sliding/model/course.dart';
 import 'package:demo_muas_sliding/model/department.dart';
+import 'package:demo_muas_sliding/widgets/courseCard.dart';
 import 'package:demo_muas_sliding/globals.dart' as globals;
 
 class SelectionFragment extends StatelessWidget {
@@ -11,7 +12,7 @@ class SelectionFragment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> widgets = getMyClasses();
+    List<Widget> widgets = getClasses2();
     widgets.add(new Padding(
       padding: new EdgeInsets.only(left: 12.0, right: 12.0, top: 8.0, bottom: 8.0),
       child: new RaisedButton(
@@ -28,6 +29,7 @@ class SelectionFragment extends StatelessWidget {
     ));
     return new ListView(
       children: widgets,
+      padding: new EdgeInsets.all(0.0),
     );
   }
 
@@ -80,6 +82,16 @@ class SelectionFragment extends StatelessWidget {
       );
     }
     return ClassList;
+  }
+
+  List<Widget> getClasses2() {
+    List<Course> allCourses = [];
+    selection.forEach((department, courses) => allCourses.addAll(courses));
+    return allCourses.map((course) => new Padding(
+        padding: new EdgeInsets.only(top: 4.0, bottom: 4.0, right: 8.0, left: 8.0),
+        child: CourseCard(course)
+    )
+    ).toList();
   }
 
 }
