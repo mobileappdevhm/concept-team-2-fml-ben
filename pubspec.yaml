@@ -28,6 +28,20 @@ flutter:
 
   assets:
     - assets/placeholder.png
+    - assets/fk1.png
+    - assets/fk2.png
+    - assets/fk3.png
+    - assets/fk4.png
+    - assets/fk5.png
+    - assets/fk6.png
+    - assets/fk7.png
+    - assets/fk8.png
+    - assets/fk9.png
+    - assets/fk10.png
+    - assets/fk11.png
+    - assets/fk12.png
+    - assets/fk13.png
+    - assets/fk14.png
     - assets/campusPasing.png
     - assets/campusLoth.png
     - assets/campusKarl.png
