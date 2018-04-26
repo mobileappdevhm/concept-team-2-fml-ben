@@ -40,6 +40,10 @@ class _LogInPageState extends State<LogInPage> {
   void _logMeIn() {
 
   }
+  
+  void openSettings() {
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +51,12 @@ class _LogInPageState extends State<LogInPage> {
       appBar: new AppBar(
         title: new Text("Courses in English"),
         backgroundColor: Colors.black,
+        actions: <Widget>[
+          new MaterialButton(
+            child: new Icon(Icons.settings),
+            onPressed: openSettings,
+          )
+        ],
       ),
       body: new Container(
         padding: new EdgeInsets.all(20.0),
