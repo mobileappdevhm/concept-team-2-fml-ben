@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class SettingsPage extends StatefulWidget {
+import 'LogIn.dart';
+
+class MySettingsPage extends StatefulWidget {
 
   @override
   SettingsPageState createState() => new SettingsPageState();
 
 }
 
-class SettingsPageState extends State<SettingsPage> {
+class SettingsPageState extends State<MySettingsPage> {
 
   List<bool> checkedList = new List<bool>();
 
@@ -23,6 +25,12 @@ class SettingsPageState extends State<SettingsPage> {
     });
   }
 
+  void _openLogIn() {
+    Navigator.push(context, new MaterialPageRoute(
+      builder: (context) => new LogInPage())
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -31,15 +39,25 @@ class SettingsPageState extends State<SettingsPage> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("Settings"),
+        actions: <Widget>[
+          new MaterialButton(
+            child: new Text("Log In"),
+            onPressed: _openLogIn,
+          )
+        ],
       ),
       body: new Container(
         child: new Column(
           children: <Widget>[
+            new ListTile(
+              title: new Text("Settings", style: new TextStyle(fontWeight: FontWeight.bold),),
+            ),
             new CheckboxListTile(
-              value: checkedList[1],
-                  onChanged: (checked) {
-                    onChecked(checked, 1);
-                  },
+              title: new Text("Setting one/Demo setting"),
+              value: checkedList[0],
+              onChanged: (checked) {
+                onChecked(checked, 0);
+              },
             )
           ],
         ),

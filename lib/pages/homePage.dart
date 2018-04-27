@@ -3,6 +3,7 @@ import 'package:demo_muas_sliding/fragments/mapFragment.dart';
 import 'package:demo_muas_sliding/fragments/selectionFragment.dart';
 import 'package:demo_muas_sliding/fragments/departmentsFragment.dart';
 import 'package:demo_muas_sliding/pages/settingsPage.dart';
+import 'package:demo_muas_sliding/pages/Settings.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               Navigator.push(
                   context,
-                  new MaterialPageRoute(builder: (context) => new SettingsPage())
+                  new MaterialPageRoute(builder: (context) => new MySettingsPage())
               );
             }
           )

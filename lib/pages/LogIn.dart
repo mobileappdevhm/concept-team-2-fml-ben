@@ -38,11 +38,7 @@ class _LogInPageState extends State<LogInPage> {
   }
 
   void _logMeIn() {
-
-  }
-  
-  void openSettings() {
-
+    Navigator.pop(context);
   }
 
   @override
@@ -50,13 +46,7 @@ class _LogInPageState extends State<LogInPage> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("Courses in English"),
-        backgroundColor: Colors.black,
-        actions: <Widget>[
-          new MaterialButton(
-            child: new Icon(Icons.settings),
-            onPressed: openSettings,
-          )
-        ],
+        backgroundColor: Colors.red,
       ),
       body: new Container(
         padding: new EdgeInsets.all(20.0),
@@ -66,8 +56,8 @@ class _LogInPageState extends State<LogInPage> {
             if (snapshot.connectionState == ConnectionState.waiting)
               return const Text("Loading...");
 
-            String myUsername = snapshot.requireData.getString(userID);
-            String myPassword = snapshot.requireData.getString(passID);
+            String myUsername = snapshot.requireData.getString(userID) ?? '';
+            String myPassword = snapshot.requireData.getString(passID) ?? '';
 
             if (myUsername.isEmpty || myPassword.isEmpty) {
               myUsername = "Username";
