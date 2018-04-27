@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
 import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -19,7 +17,7 @@ class _LogInPageState extends State<LogInPage> {
   final String passID = "password";
 
   String username = "Username";
-  String password = "Passwort";
+  String password = "Password";
 
   TextEditingController userController = new TextEditingController();
   TextEditingController passController = new TextEditingController();
@@ -33,7 +31,7 @@ class _LogInPageState extends State<LogInPage> {
     setState(() {
       // print("isChecked: " + isChecked.toString());
       isChecked = checked;
-      print(" 2. isChecked: " + isChecked.toString());
+      // print(" 2. isChecked: " + isChecked.toString());
     });
   }
 
@@ -61,7 +59,7 @@ class _LogInPageState extends State<LogInPage> {
 
             if (myUsername.isEmpty || myPassword.isEmpty) {
               myUsername = "Username";
-              myPassword = "Passwort";
+              myPassword = "Password";
             }
 
             // if (username != "Username" || password != "Passwort") {
@@ -70,7 +68,7 @@ class _LogInPageState extends State<LogInPage> {
             // }
 
             String obscuredPassword = "";
-            if (myPassword.trim() == "Passwort") {
+            if (myPassword.trim() == "Password") {
               obscuredPassword = myPassword;
             } else {
               for (int i = 0; i < myPassword.length; i++) {
@@ -95,7 +93,7 @@ class _LogInPageState extends State<LogInPage> {
                   controller: passController,
                 ),
                 new CheckboxListTile(
-                  title: new Text("Log In Daten speichern"),
+                  title: new Text("Save login data"),
                   value: isChecked,
                   onChanged: (checked) {
                     onChecked(checked);
@@ -110,7 +108,7 @@ class _LogInPageState extends State<LogInPage> {
                             color: Colors.white,
                           )),
                       onPressed: _logMeIn,
-                      color: Colors.black,
+                      color: Colors.red,
                     ),
                   ],
                 )
